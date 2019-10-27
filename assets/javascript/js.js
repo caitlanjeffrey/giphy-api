@@ -68,13 +68,18 @@ $(document).on("click", ".giphy-btn", function(){
                 class='card-img-top giph' alt='giph' 
                 data-state='still'>`;
 
-                $(".animate").on("click", function() {
-                    giphImageElement.append(animateGiph);
+                // this isn't working as desired. I know it's replacing the full #giphs-go-here div with the "animated giph"
+                $("img").on("click", function() {
+                    $("#giphs-go-here").replaceWith(animateGiph);
                 });
             
-            // btn.text("Animate");
-            // $("giphs-go-here").append(animateBtn);
-            // animate();
+                //-----This commented out area below is what i was working on for a single giph to animate-----//
+                // $("img").on("click", function(){
+                //     var index = $(this).attr('img', 'id');
+                //     console.log(index);
+                //     var animated = index.attr("data-animate");
+                //     $(".card").replaceWith(animated);
+                // });
         }
     })
     $("#giphs-go-here").empty();
