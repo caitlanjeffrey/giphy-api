@@ -2,7 +2,7 @@
 // start of document
 
 // variable to create array for initial buttons
-var giphyButtons = ['The-Rock', 'Ru-Paul', 'SNL', 'Futurama', 'The-Office'];
+var giphyButtons = ['The-Rock', 'Ru-Paul', 'Brooklyn-99', 'SNL', 'Applause', 'Futurama', 'The-Office'];
 
 // dynamically creating buttons
 function renderButtons(){
@@ -54,32 +54,31 @@ $(document).on("click", ".giphy-btn", function(){
             var giphImageElement = 
                 `<div class="card">
                 <img src=${giphs[j].images.original_still.url}
+                id=${[j]}
                 class='card-img-top giph' alt='giph' 
-                data-state='still'>`;
+                data-state=${giphs[j].images.fixed_height.url}>`;
 
                 $("#giphs-go-here").append(giphImageElement);
             
             var giphTitleRating = "<div class='card-body'>" + "<p class='card-text'>Title: " + giphs[j].title + "</p>" + "<br>" + "<p class='card-text'>Rating: " + giphs[j].rating + "</p>";
                 $("#giphs-go-here").append(giphTitleRating);
 
-            var animateGiph = 
-                `<div class="card">
-                <img src=${giphs[j].images.fixed_height.url}
-                class='card-img-top giph' alt='giph' 
-                data-state='still'>`;
-
                 // this isn't working as desired. I know it's replacing the full #giphs-go-here div with the "animated giph"
-                $("img").on("click", function() {
-                    $("#giphs-go-here").replaceWith(animateGiph);
-                });
+                // $("img").on("click", function() {
+                //     var animateGiph = 
+                //         `<div class="card">
+                //         <img src=${giphs[j].images.fixed_height.url}
+                //         class='card-img-top giph' alt='giph' 
+                //         data-state='still'>`;
+                //     $("#giphs-go-here").replaceWith(animateGiph);
+                // });
             
                 //-----This commented out area below is what i was working on for a single giph to animate-----//
-                // $("img").on("click", function(){
-                //     var index = $(this).attr('img', 'id');
-                //     console.log(index);
-                //     var animated = index.attr("data-animate");
-                //     $(".card").replaceWith(animated);
-                // });
+                $('img').on("click", function(){
+                    var index = $(this).attr('img', 'id');
+                    console.log(index);
+                    
+                });
         }
     })
     $("#giphs-go-here").empty();
