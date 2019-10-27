@@ -62,22 +62,12 @@ $(document).on("click", ".giphy-btn", function(){
             
             var giphTitleRating = "<div class='card-body'>" + "<p class='card-text'>Title: " + giphs[j].title + "</p>" + "<br>" + "<p class='card-text'>Rating: " + giphs[j].rating + "</p>";
                 $("#giphs-go-here").append(giphTitleRating);
-
-                // this isn't working as desired. I know it's replacing the full #giphs-go-here div with the "animated giph"
-                // $("img").on("click", function() {
-                //     var animateGiph = 
-                //         `<div class="card">
-                //         <img src=${giphs[j].images.fixed_height.url}
-                //         class='card-img-top giph' alt='giph' 
-                //         data-state='still'>`;
-                //     $("#giphs-go-here").replaceWith(animateGiph);
-                // });
             
                 //-----This commented out area below is what i was working on for a single giph to animate-----//
                 $('img').on("click", function(){
                     var index = $(this).attr('img', 'id');
                     console.log(index);
-                    
+                    //--I am attempting to get the animation click to work---//
                 });
         }
     })
