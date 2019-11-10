@@ -56,7 +56,8 @@ $(document).on("click", ".giphy-btn", function(){
                 <img src=${giphs[j].images.original_still.url}
                 id=${[j]}
                 class='card-img-top giph' alt='giph' 
-                data-state=${giphs[j].images.fixed_height.url}>`;
+                data-state='still
+                data-animate=${giphs[j].images.fixed_height.url}>`;
 
                 $("#giphs-go-here").append(giphImageElement);
             
@@ -67,9 +68,13 @@ $(document).on("click", ".giphy-btn", function(){
                 $('img').on("click", function(){
                     var index = $(this).attr('img', 'id');
                     console.log(index);
+                    
+                    if ("data-state" === "still") {
+
+                    }
                     //--I am attempting to get the animation click to work---//
                 });
-        }
+        }f
     })
     $("#giphs-go-here").empty();
 })
